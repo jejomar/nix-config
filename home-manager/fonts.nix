@@ -7,5 +7,8 @@
         fonts = [ "IBMPlexMono" ];
       }
     )
+
+    # Sans
+    ibm-plex
   ];
 }

@@ -12,6 +12,8 @@
     ./fonts.nix
     ./waybar.nix
     ./nvim.nix
+    ./theme.nix
+
     ./programs/kitty.nix
     ./programs/rofi.nix
   ];
@@ -64,13 +66,20 @@
     
     # docs
     obsidian
+    zathura
 
     # internet
     brave
     ungoogled-chromium
+
+    # media
+    mpv
+    spotify
+    feh
+    pavucontrol
   ];
 
-  # Enable home-manager and git
+  # Enable home-manager
   programs.home-manager.enable = true;
 
   # Git

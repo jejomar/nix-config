@@ -19,6 +19,11 @@
 
       # Color scheme
       background_opacity = "0.8";
+
+      # Disable audio bell
+      enable_audio_bell = "no";
     };
+
+    theme = "Rosé Pine";
   };
 }

@@ -16,6 +16,7 @@
       nv = "nvim";
 
       hl = "nvim ~/.config/hypr/hyprland.conf";
+      restartnm = "sudo systemctl restart NetworkManager";
     };
   };
 }

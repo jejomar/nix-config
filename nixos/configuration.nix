@@ -27,12 +27,15 @@
     allowReboot = true;
   };
 
-  # Storage optimization
+  # Garbage collection
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  # Augomate optimization
+  nix.settings.auto-optimise-store = true;
 
   # Nix Flakes support
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -68,7 +71,11 @@
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
+    xwayland.enable = true;
   };
+
+  # Electron apps use Wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -77,9 +84,18 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  # Sound: PipeWire support
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Bluetooth support
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -121,7 +137,9 @@
   services.tumbler.enable = true;
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
