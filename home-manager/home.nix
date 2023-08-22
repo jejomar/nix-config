@@ -77,6 +77,10 @@
     spotify
     feh
     pavucontrol
+
+    # notifications
+    dunst
+
   ];
 
   # Enable home-manager
@@ -87,6 +91,11 @@
     enable = true;
     userEmail = "jejomarcariaga.jc@gmail.com";
     userName = "Jejomar Cariaga";
+    extraConfig = {
+      credential.helper = "${
+        pkgs.git.override { withLibsecret = true; }
+      }/bin/git-credential-libsecret";
+    };
   };
 
   # Nicely reload system units when changing configs

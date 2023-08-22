@@ -34,7 +34,7 @@
     options = "--delete-older-than 7d";
   };
 
-  # Augomate optimization
+  # Automate optimization
   nix.settings.auto-optimise-store = true;
 
   # Nix Flakes support
@@ -113,7 +113,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     bat
-    git
+    gitFull
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -140,6 +140,8 @@
   services.openssh = {
     enable = true;
   };
+  
+  services.gnome.gnome-keyring.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
