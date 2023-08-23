@@ -67,6 +67,7 @@
     # docs
     obsidian
     zathura
+    masterpdfeditor4
 
     # internet
     brave
@@ -80,6 +81,9 @@
 
     # notifications
     dunst
+
+    # tools
+    isoimagewriter
 
   ];
 
